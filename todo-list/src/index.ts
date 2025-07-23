@@ -6,9 +6,9 @@ let todos: Todo[] = []
 function addTodo(title: string, metaData?: any | string | object): Todo {
     const newTodo: Todo = {
         id: 1,
-        title: "",
+        title: title,
         completo: false,
-        metaData: ""
+        metaData: metaData
     };
 
     todos.push(newTodo);
@@ -20,23 +20,23 @@ const assignTodoToUser = (todoId: number, userId: number) => {
     const todo = todos.find(t => t.id === todoId)
     if (todo) {
         todo.userId = userId
-        return true
+
     }
     console.error(`Todo con id ${todoId} non trovato`)
-    return false
+
 }
-assignTodoToUser
+assignTodoToUser(1, 1)
 
 const getUserTodo = (userId: number) => {
     const todo = todos.filter(t => t.id === userId)
     return todo
 }
-getUserTodo
+getUserTodo(1)
 
 const throwError = (message?: string): never => {
     throw new Error(message)
 }
-throwError
+throwError()
 
 const parseInput = (input: unknown) => {
     if (typeof input === "string") {
@@ -49,7 +49,7 @@ const parseInput = (input: unknown) => {
         throw new Error(throwError())
     }
 }
-parseInput
+parseInput("input")
 
 const updateTodo = () => {
     const updata: Partial<Todo> = {
@@ -57,7 +57,7 @@ const updateTodo = () => {
     }
 }
 
-updateTodo
+updateTodo()
 
 const getTodoSummary = () => {
     type TupleArray = [String, Boolean]
@@ -65,4 +65,9 @@ const getTodoSummary = () => {
 
     return array
 }
-getTodoSummary
+getTodoSummary()
+
+const createProject = () => {
+    const utente = {}
+    const todo = {}
+}
