@@ -67,7 +67,12 @@ const getTodoSummary = () => {
 }
 getTodoSummary()
 
-const createProject = () => {
-    const utente = {}
-    const todo = {}
+const createProject = (id: number, name: string, users: user[], todos: Todo[]) => {
+    return {
+        id,
+        name,
+        users,
+        todos
+    }
 }
+createProject(1, "project", [], todos)

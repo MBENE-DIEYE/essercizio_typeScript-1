@@ -19,15 +19,9 @@ export interface TodoWithMetaData extends Todo {
 }
 
 export interface Project {
-    user: {
-        id: number,
-        name: string,
-        email: string
-    },
-    Todo: {
-        id: number,
-        title: string,
-        completo: boolean,
-        userId?: number,
-    }
+    id: number,
+    name: string,
+    users: user[],
+    todos: Todo[]
+
 }
