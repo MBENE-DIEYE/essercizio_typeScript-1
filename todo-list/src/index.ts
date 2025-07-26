@@ -51,20 +51,26 @@ const parseInput = (input: unknown) => {
 }
 parseInput("input")
 
-const updateTodo = () => {
+const todos1: Todo = {
+    id: 1,
+    title: "myTitle",
+    completo: true,
+    metaData: ""
+}
 
+const updateTodo = (todo: Todo, update: Partial<Todo>) => {
+    return { ...todo, ...update }
 
 }
 
-updateTodo()
+updateTodo(todos1, { completo: true })
 
-const getTodoSummary = () => {
-    type TupleArray = [String, Boolean]
-    const array: TupleArray = ["tilte", false]
+const getTodoSummary = (todos: Todo): [String, Boolean] => {
+    return [todos.title, todos.completo]
 
-    return array
+
 }
-getTodoSummary()
+getTodoSummary(todos1)
 
 const createProject = (id: number, name: string, users: user[], todos: Todo[]) => {
     return {
