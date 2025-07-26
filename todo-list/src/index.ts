@@ -52,9 +52,8 @@ const parseInput = (input: unknown) => {
 parseInput("input")
 
 const updateTodo = () => {
-    const updata: Partial<Todo> = {
-        id: 1
-    }
+
+
 }
 
 updateTodo()
