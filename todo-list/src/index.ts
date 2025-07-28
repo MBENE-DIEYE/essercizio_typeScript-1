@@ -3,18 +3,19 @@ import { Todo, user } from "./type";
 
 let todos: Todo[] = []
 
-function addTodo(title: string, metaData?: any | string | object): Todo {
+function addTodo(title: string, Pending: number, metaData?: any | string | object): Todo {
     const newTodo: Todo = {
         id: 1,
         title: title,
         completo: false,
-        metaData: metaData
+        metaData: metaData,
+        Pending: 2
     };
 
     todos.push(newTodo);
     return newTodo;
 }
-addTodo("compra il latte")
+addTodo("compra il latte", 1)
 
 const assignTodoToUser = (todoId: number, userId: number) => {
     const todo = todos.find(t => t.id === todoId)
@@ -55,7 +56,8 @@ const todos1: Todo = {
     id: 1,
     title: "myTitle",
     completo: true,
-    metaData: ""
+    metaData: "metaData",
+    Pending: 1
 }
 
 const updateTodo = (todo: Todo, update: Partial<Todo>) => {
