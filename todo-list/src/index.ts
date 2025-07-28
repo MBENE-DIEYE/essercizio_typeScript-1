@@ -1,15 +1,16 @@
-import { Todo, user } from "./type";
+import { Todo, TodoStatus, user } from "./type";
+import { User } from "./user";
 
 
 let todos: Todo[] = []
 
-function addTodo(title: string, Pending: number, metaData?: any | string | object): Todo {
+function addTodo(title: string, metaData?: any | string | object): Todo {
     const newTodo: Todo = {
         id: 1,
         title: title,
         completo: false,
         metaData: metaData,
-        Pending: 2
+        status: TodoStatus.Pending
     };
 
     todos.push(newTodo);
@@ -57,7 +58,7 @@ const todos1: Todo = {
     title: "myTitle",
     completo: true,
     metaData: "metaData",
-    Pending: 1
+    status: 1
 }
 
 const updateTodo = (todo: Todo, update: Partial<Todo>) => {
@@ -83,3 +84,27 @@ const createProject = (id: number, name: string, users: user[], todos: Todo[]) =
     }
 }
 createProject(1, "project", [], todos)
+
+const updateTodoStatus = (todoId: number, newStatus: TodoStatus): boolean => {
+    const todo = todos.find(t => t.id === todoId)
+    if (!todo) {
+        return false
+    }
+    todo.status = newStatus
+    return true
+
+}
+
+updateTodoStatus(1, 2)
+
+const todo2: Todo = {
+    id: 1,
+    title: 'Comprare il latte',
+    completo: true,
+    metaData: "",
+    status: TodoStatus.Pending
+};
+
+const mario = new User(1, "mbene", "email")
+
+mario.addTodo(todo2)
