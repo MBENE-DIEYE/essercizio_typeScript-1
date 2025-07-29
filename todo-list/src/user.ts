@@ -6,7 +6,7 @@ export class User {
     email?: string
     todos: Todo[] = []
 
-    constructor(id: 1, name: "mbene", email: "email") {
+    constructor(id: number, name: string, email: string) {
         this.id = id
         this.name = name
         this.email = email
