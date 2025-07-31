@@ -2,14 +2,11 @@ import { Todo } from "./type";
 
 let todos: Todo[] = []
 
-const filterTodos = () => (
-    todos: Todo[],
-    filterFn: (todo: Todo) => boolean
-): Todo[] => {
+const filterTodos = (todos: Todo[], filterFn: (todo: Todo) => Boolean) => {
     return todos.filter(filterFn)
 }
 
-filterTodos()
+filterTodos(todos, (todo) => todo.completo)
 
 export type partialTodo = Partial<Todo>
 
